@@ -1,0 +1,6 @@
+# Path to mount vagrant home folder, to allow you to edit files on your host
+#   machine with tools on your host. Also, if you want to work on a fork of
+#   reddit, you can replace the `$HOME/reddit` folder with whatever you want.
+# 
+# reddit_vagrant_home_folder: '../reddit_vagrant_home'
+
