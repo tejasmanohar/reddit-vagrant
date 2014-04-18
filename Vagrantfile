@@ -2,7 +2,10 @@
 # vi: set ft=ruby :
 
 require 'yaml'
-user_config = YAML::load_file("vagrant_config.yml")
+
+user_config = {
+  'reddit_vagrant_home_folder' => "../reddit_vagrant_home"
+}.merge(YAML::load_file("vagrant_config.yml") || {})
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
@@ -32,7 +35,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder (user_config['reddit_vagrant_home_folder'] || "../reddit_vagrant_home"), "/home/vagrant"
+  config.vm.synced_folder user_config['reddit_vagrant_home_folder'], "/home/vagrant", 
+      create: true,
+      type: 'nfs'
+
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -46,5 +52,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   vb.customize ["modifyvm", :id, "--memory", "1024"]
   # end
 
-  config.vm.provision :shell, :path => "bootstrap.sh"
+  # config.vm.provision :shell, :path => "bootstrap.sh"
 end
