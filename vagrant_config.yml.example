@@ -2,5 +2,5 @@
 #   machine with tools on your host. Also, if you want to work on a fork of
 #   reddit, you can replace the `$HOME/reddit` folder with whatever you want.
 # 
-# reddit_vagrant_home_folder: '../reddit_vagrant_home'
+# reddit_folder: '../reddit'
 
