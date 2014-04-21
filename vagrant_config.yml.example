@@ -1,6 +1,10 @@
-# Path to mount vagrant home folder, to allow you to edit files on your host
-#   machine with tools on your host. Also, if you want to work on a fork of
-#   reddit, you can replace the `$HOME/reddit` folder with whatever you want.
-# 
-# reddit_folder: '../reddit'
+# Specify which vagrant box to use.
+:box: "hashicorp/precise32"
+
+# Assign a private IP to your box.
+:private_ip: "192.168.150.3"
+
+# Expose the VM's port 80 on a specified port.
+:forward_port: 8080
+
 

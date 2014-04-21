@@ -13,7 +13,7 @@ alias rstop="sudo initctl emit reddit-stop"
 alias rrestart="sudo initctl emit reddit-restart"
 
 # Start reddit with paster. This is handy for debugging.
-alias rserve="r2 && mcflush && sudo -u reddit paster serve run.ini"
+alias rserve="r2 && mcflush && sudo -u vagrant paster serve run.ini"
 
 # A reddit ready shell.
-alias rshell="r2 && mcflush && sudo -u reddit paster shell run.ini" 
+alias rshell="r2 && mcflush && sudo -u vaggrant paster shell run.ini" 

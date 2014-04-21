@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
 
-# Update all the things.
-sudo apt-get update
-sudo apt-get -y upgrade
-
 # Download the reddit install file.
+sudo apt-get update
+sudo apt-get upgrade
+
 wget https://raw.github.com/reddit/reddit/master/install-reddit.sh
 chmod +x install-reddit.sh
-
-# Use the local reddit folder instead of cloning it from git.
-sed -i 's/clone_reddit_repo reddit reddit\/reddit/ln -s \/reddit src\/reddit/' install-reddit.sh
 
 # Install reddit and all its dependencies.
 REDDIT_USER=vagrant REDDIT_GROUP=vagrant sudo ./install-reddit.sh
@@ -19,6 +15,5 @@ REDDIT_USER=vagrant REDDIT_GROUP=vagrant sudo ./install-reddit.sh
 sudo service cassandra start
 
 # Install some helpful bash functions.
-cat bash_helpers >> .bashrc
-
+cat /vagrant/bash_helpers >> /home/vagrant/.bashrc
 
