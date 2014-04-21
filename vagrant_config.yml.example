@@ -2,7 +2,7 @@
 :box: "hashicorp/precise32"
 
 # Assign a private IP to your box.
-:private_ip: "192.168.150.3"
+:private_ip: "192.168.150.2"
 
 # Expose the VM's port 80 on a specified port.
 :forward_port: 8080
