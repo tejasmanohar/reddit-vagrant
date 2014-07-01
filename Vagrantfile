@@ -45,10 +45,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   vb.customize ["modifyvm", :id, "--memory", "1024"]
   # end
 
-  $script = <<SCRIPT
-chmod u+x /vagrant/bootstrap.sh
-sudo -u vagrant /vagrant/bootstrap.sh
-SCRIPT
-
-  config.vm.provision :shell, :inline => $script
+  config.vm.provision :shell, :path => 'https://raw.githubusercontent.com/ajacksified/dotfiles/vagrant/install-ubuntu.sh'
 end
