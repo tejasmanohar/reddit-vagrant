@@ -4,8 +4,8 @@
 require 'yaml'
 
 user_config = {
-  box: "hashicorp/precise32",
   private_ip: "192.168.150.2",
+  box: "hashicorp/precise64",
   forward_port: 8001
 }.merge(YAML::load_file("vagrant_config.yml") || {})
 
