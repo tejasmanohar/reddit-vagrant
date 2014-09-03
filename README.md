@@ -12,7 +12,7 @@ Usage
 * Install vagrant and virtualbox (or vmware and the provider, or whatever you prefer.)
 * Run `vagrant up`
 * Run `vagrant ssh` to ssh in
-* Run `/vagrant/bootstrap.sh` to install reddit, and then follow the output to add test data to the database
+* Run `/vagrant/bootstrap.sh` in your vm to install reddit, and then follow the output to add test data to the database
    (follow prompts in output.)
 * Visit `localhost:8080` and revel in your beautiful new reddit development environment.
 
