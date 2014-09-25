@@ -17,6 +17,11 @@
 # If any of these are set to false, they will be cloned
 # inside of the environment instead of mounted from outside.
 :local: {
+  reddit: "../reddit",
+  i18n: "../reddit-i18n",
+  about: "../reddit-plugin-about",
+  meatspace: "../reddit-plugin-meatspace",
+  liveupdate: "../reddit-plugin-liveupdate"
 }
 # Specify what plugins to install here. If they are not also specified in local,
 # they must be found at https://github.com/reddit
@@ -25,6 +30,9 @@
   "meatspace",
   "liveupdate"
 ]
+
+# Whether to populate the database with test data or not
+:testData: true
 # How much cpu and memory to use
 :cpu: 4 #Cores
 :memory: 4096 #MB

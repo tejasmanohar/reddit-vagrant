@@ -1,19 +1,20 @@
-#!/usr/bin/env bash
+#!/bin/bash
+apt_get=/usr/bin/apt-get
+wget=/usr/bin/wget
+service=/usr/sbin/service
+reddit_run=/usr/local/bin/reddit-run
+init_ctl=/sbin/initctl
 
-# Download the reddit install file.
-sudo apt-get update
-sudo apt-get upgrade
+export REDDIT_USER=vagrant
+export REDDIT_GROUP=vagrant
+export REDDIT_HOME="/host"
 
-wget https://raw.github.com/reddit/reddit/master/install-reddit.sh
-chmod +x install-reddit.sh
+export REDDIT_PLUGINS=$1
 
 # Install reddit and all its dependencies.
-REDDIT_USER=vagrant REDDIT_GROUP=vagrant sudo ./install-reddit.sh
-
-# The script starts it, but it always fails for me, so starting it here too seems
-# more reliable.
-sudo service cassandra start
-
-# Install some helpful bash functions.
-cat /vagrant/bash_helpers >> /home/vagrant/.bashrc
-
+. /vagrant/install-reddit.sh
+if [ $2 ]; then
+  $init_ctl emit reddit-stop
+  eval "cd $REDDIT_HOME/src/reddit/r2; $reddit_run r2/models/populatedb.py -c 'populate()'"
+  $init_ctl emit reddit-start
+fi
