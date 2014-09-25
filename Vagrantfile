@@ -88,7 +88,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   user_config[:local].each do |key, value|
     if value
-      config.vm.synced_folder value, '/host-raw/src/'+key, type: user_config[:nfs] && 'nfs' || nil
+      config.vm.synced_folder value, '/host-raw/src/'+key, type: user_config[:nfs] && 'nfs' || nil, mount_options:user_config[:nfs] && ['rw', 'vers=3', 'tcp', 'nolock'] || nil
       config.bindfs.bind_folder '/host-raw/src/'+key, '/host/src/'+key
     end
   end
