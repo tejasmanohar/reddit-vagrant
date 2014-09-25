@@ -11,6 +11,7 @@ Usage
     * Note: If you intend on having your source tree mounted from your host, copy
       vagrant_config.yml.devexample instead
 * Install vagrant
+* Install vagrant-bindfs `vagrant plugin install vagrant-bindfs`
 * Install your preferred vmware provider(VirtualBox, KVM, and VMWare are supported)
   * VirtualBox - works out of the box, install VirtualBox on your host machine.
   * KVM - `vagrant plugin install vagrant-kvm` (you'll also need libvirt-dev on your host).
@@ -28,6 +29,7 @@ Protips
 -------
 * Read `vagrant_config.yml`.
 * Setting testData to false can speed up provisioning times dramatically.
+* Setting nfs to false is a good idea on vmware and also on osx
 
 Q & A
 -----

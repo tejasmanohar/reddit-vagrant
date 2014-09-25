@@ -36,3 +36,5 @@
 # How much cpu and memory to use
 :cpu: 4 #Cores
 :memory: 4096 #MB
+#Use NFS for shared folder mounts(increases performance with virtualbox)
+:nfs: true

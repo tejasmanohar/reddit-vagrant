@@ -17,7 +17,8 @@ user_config = {
     "liveupdate"
   ],
   testData: false,
-  cpu: 4
+  cpu: 4,
+  nfs: true
 }.merge(YAML::load_file("vagrant_config.yml") || {})
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
@@ -75,24 +76,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # NFS for shared folders. This is also very useful for vagrant-libvirt if you
     # want bi-directional sync
     config.cache.synced_folder_opts = {
-      type: :nfs,
+      type: user_config[:nfs] && :nfs || nil,
       # The nolock option can be useful for an NFSv3 client that wants to avoid the
       # NLM sideband protocol. Without this option, apt-get might hang if it tries
       # to lock files needed for /var/cache/* operations. All of this can be avoided
       # by using NFSv4 everywhere. Please note that the tcp option is not the default.
-      mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+      mount_options: user_config[:nfs] && ['rw', 'vers=3', 'tcp', 'nolock'] || []
     }
     # For more information please check http://docs.vagrantup.com/v2/synced-folders/basic_usage.html
   end
 
   user_config[:local].each do |key, value|
     if value
-      config.vm.synced_folder value, "/host/src/"+key, type: "nfs"
+      config.vm.synced_folder value, '/host-raw/src/'+key, type: user_config[:nfs] && 'nfs' || nil
+      config.bindfs.bind_folder '/host-raw/src/'+key, '/host/src/'+key
     end
   end
 
   config.vm.provision :shell, :path => 'bootstrap.sh', :args => [
     user_config[:plugins].join("\n"),
-    user_config[:testData] && "1" || ""
+    user_config[:testData] && '1' || ''
   ]
 end
