@@ -44,6 +44,9 @@ Q & A
 
 When Things Go Wrong
 --------------------
+If you are using KVM, the most recent version has a bug in it that breaks private networks.
+Please uninstall vagrant-kvm and reinstall it with the --plugin-version=0.1.7 switch.
+
 First, try to `git clean -f -d` each of your local source trees. The build process is messy.
 Then, try a `vagrant provision` if the install script didn't complete. If that doesn't fix
 it, as a last resort try a `vagrant destroy` and then a `vagrant up`. Sometimes packages don't
