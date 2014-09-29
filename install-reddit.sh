@@ -265,7 +265,7 @@ rabbitmqctl set_permissions -p / reddit ".*" ".*" ".*"
 ###############################################################################
 function install_reddit_repo {
     cd $REDDIT_HOME/src/$1
-    rm -R build/*
+    rm -rf build/*
     sudo -u $REDDIT_USER python setup.py build
     python setup.py develop --no-deps
 }
