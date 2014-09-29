@@ -32,7 +32,8 @@ Protips
 -------
 * Read `vagrant_config.yml`.
 * Setting testData to false can speed up provisioning times dramatically.
-* Setting nfs to false is a good idea on vmware and also on osx
+* Setting nfs to false is a good idea on vmware and also on osx.
+* Read the bash_helpers script for aliases to common commands.
 
 Q & A
 -----
@@ -43,7 +44,7 @@ Q & A
 
 When Things Go Wrong
 --------------------
-
-Try a `vagrant provision` if the install script didn't complete. If that doesn't fix
+First, try to `git clean -f -d` each of your local source trees. The build process is messy.
+Then, try a `vagrant provision` if the install script didn't complete. If that doesn't fix
 it, as a last resort try a `vagrant destroy` and then a `vagrant up`. Sometimes packages don't
 download properly.
