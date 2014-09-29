@@ -10,7 +10,7 @@ Usage
 * OPTIONAL, Copy `vagrant_config.yml.example` to `vagrant_config.yml`. Change values as necessary.
     * Note: If you intend on having your source tree mounted from your host, copy
       vagrant_config.yml.devexample instead
-* Install vagrant
+* Install vagrant (Get the latest from https://www.vagrantup.com/downloads.html)
 * Install vagrant-bindfs `vagrant plugin install vagrant-bindfs`
 * Install your preferred vmware provider(VirtualBox, KVM, and VMWare are supported)
   * VirtualBox - works out of the box, install VirtualBox on your host machine.
