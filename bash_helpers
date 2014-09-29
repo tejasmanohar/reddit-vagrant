@@ -1,5 +1,5 @@
 # Go directly to the r2 directory
-alias r2="cd ~/src/reddit/r2"
+alias r2="cd /host/src/reddit/r2"
 
  # Tail the syslog for any errors/prints/etc. Used with initctl.
 alias tl="sudo tail -f /var/log/syslog"
@@ -8,12 +8,12 @@ alias tl="sudo tail -f /var/log/syslog"
 alias mcflush="echo 'flush_all' | nc localhost 11211"
 
 # Start, stop, and restart reddit
-alias rstart="sudo initctl emit reddit-start"
-alias rstop="sudo initctl emit reddit-stop"
-alias rrestart="sudo initctl emit reddit-restart"
+alias reddit-start="sudo initctl emit reddit-start"
+alias reddit-stop="sudo initctl emit reddit-stop"
+alias reddit-restart="sudo initctl emit reddit-restart"
 
 # Start reddit with paster. This is handy for debugging.
-alias rserve="r2 && mcflush && sudo -u vagrant paster serve run.ini"
+alias reddit-serve="r2 && mcflush && sudo -u vagrant paster serve run.ini"
 
 # A reddit ready shell.
-alias rshell="r2 && mcflush && sudo -u vaggrant paster shell run.ini" 
+alias reddit-shell="r2 && mcflush && sudo -u vagrant paster shell run.ini" 
