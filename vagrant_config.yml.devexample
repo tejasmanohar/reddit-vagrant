@@ -17,15 +17,17 @@
 # Expose the VM's port 80 on a specified port. May be set to false to disable.
 :forward_port: 8001
 
-# Where, or if, the required repositories are located.
+# Where, or if, the required source repositories are located.
 # If any of these are set to false, they will be cloned
 # inside of the environment instead of mounted from outside.
+# NOTE:: do not just create blank directories to satisfy these dependencies,
+# it will not work.
 :local: {
-  reddit: "../reddit",
-  i18n: "../reddit-i18n",
-  about: "../reddit-plugin-about",
-  meatspace: "../reddit-plugin-meatspace",
-  liveupdate: "../reddit-plugin-liveupdate"
+  reddit: "../reddit", # - git@github.com:reddit/reddit.git
+  i18n: "../reddit-i18n", # - git@github.com:reddit/reddit-i18n.git
+  about: "../reddit-plugin-about", # - git@github.com:reddit/reddit-plugin-about.git
+  meatspace: "../reddit-plugin-meatspace", # - git@github.com:reddit/reddit-plugin-meatspace.git
+  liveupdate: "../reddit-plugin-liveupdate" # - git@github.com:reddit/reddit-plugin-liveupdate.git
 }
 # Specify what plugins to install here. If they are not also specified in local,
 # they must be found at https://github.com/reddit

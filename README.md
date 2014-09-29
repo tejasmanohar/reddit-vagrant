@@ -23,7 +23,7 @@ Usage
 * OPTIONAL, but recommended. Install the cachier plugin for vagrant
   (`vagrant plugin install vagrant-cachier`). This will make future provisions MUCH faster.
 * Run `vagrant up --provider=:provider`, wait for it to finish.
-* Visit `localhost:8001` and revel in your beautiful new reddit development environment.
+* Visit `http://reddit.local` and revel in your beautiful new reddit development environment.
 
 
 Protips
