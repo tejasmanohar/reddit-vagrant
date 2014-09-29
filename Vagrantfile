@@ -34,7 +34,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = user_config[:box_url]
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: user_config[:private_ip]
+  if user_config[:dhcp]
+    config.vm.network "private_network", type: 'dhcp'
+  else
+    config.vm.network "private_network", ip: user_config[:private_ip]
+  end
+  config.vm.hostname = user_config[:hostname]
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.

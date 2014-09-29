@@ -18,14 +18,12 @@ Usage
   * VMWare - `vagrant plugin install vagrant-vmware-fusion` (you'll also need vmware-fusion)
   * NOTE - You will also need to choose the appropriate box for a particular provider in your
     vagrant_config.yml. VirtualBox is default
-
+* Install vagrant-hostsupdater - this will add the appropriate hosts entries for your local system.
+  `vagrant plugin install vagrant-hostsupdater`.
 * OPTIONAL, but recommended. Install the cachier plugin for vagrant
   (`vagrant plugin install vagrant-cachier`). This will make future provisions MUCH faster.
 * Run `vagrant up --provider=:provider`, wait for it to finish.
 * Visit `localhost:8001` and revel in your beautiful new reddit development environment.
-* NOTE, to get cookie auth working properly, you need to add a line to /etc/hosts for `reddit.local`
-  that points to either `127.0.0.1`(access via reddit.local:port` or the VM's private ip to access on
-  port 80.
 
 
 Protips
