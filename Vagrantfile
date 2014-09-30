@@ -18,6 +18,8 @@ user_config = {
   ],
   testData: false,
   cpu: 4,
+  dhcp: true,
+  hostname: "reddit.local",
   nfs: true
 }.merge(YAML::load_file("vagrant_config.yml") || {})
 
