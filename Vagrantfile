@@ -102,6 +102,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :shell, :path => 'bootstrap.sh', :args => [
     user_config[:plugins].join("\n"),
-    user_config[:testData] && '1' || ''
+    user_config[:testData] && '1' || '',
+    user_config[:hostname]
   ]
 end

@@ -619,7 +619,8 @@ set_consumer_count vote_comment_q 1
 
 chown -R $REDDIT_USER:$REDDIT_GROUP $CONSUMER_CONFIG_ROOT/
 
-initctl emit reddit-restart
+initctl emit reddit-stop
+initctl emit reddit-start
 
 ###############################################################################
 # Cron Jobs

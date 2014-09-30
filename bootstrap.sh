@@ -11,6 +11,7 @@ export REDDIT_GROUP=vagrant
 export REDDIT_HOME="/host"
 
 export REDDIT_PLUGINS=$1
+export REDDIT_DOMAIN=$3
 
 # Install reddit and all its dependencies.
 . /vagrant/install-reddit.sh
