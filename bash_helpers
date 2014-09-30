@@ -5,7 +5,7 @@ alias r2="cd /host/src/reddit/r2"
 alias tl="sudo tail -f /var/log/syslog"
 
 # Flush memcache
-alias mcflush="echo 'flush_all' | nc localhost 11211"
+alias reddit-flush="echo 'flush_all' | nc localhost 11211"
 
 # Start, stop, and restart reddit
 alias reddit-start="sudo initctl emit reddit-start"
