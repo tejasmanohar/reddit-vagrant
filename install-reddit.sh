@@ -278,13 +278,13 @@ done <<< "$REDDIT_PLUGINS"
 
 # generate binary translation files from source
 cd $REDDIT_HOME/src/i18n/
-sudo -u $REDDIT_USER make
+sudo -u $REDDIT_USER make clean all
 
 # this builds static files and should be run *after* languages are installed
 # so that the proper language-specific static files can be generated and after
 # plugins are installed so all the static files are available.
 cd $REDDIT_HOME/src/reddit/r2
-sudo -u $REDDIT_USER make
+sudo -u $REDDIT_USER make clean all
 
 if [ ! -f development.update ]; then
     cat > development.update <<DEVELOPMENT
@@ -316,10 +316,10 @@ DEVELOPMENT
     chown $REDDIT_USER development.update
 fi
 
-sudo -u $REDDIT_USER make ini
-
 plugin_str=$(echo -n "$REDDIT_PLUGINS" | tr "\n" ,)
-sed -i "s/^plugins = .*$/plugins = $plugin_str/" $REDDIT_HOME/src/reddit/r2/development.ini
+sed -i "s/^plugins = .*$/plugins = $plugin_str/" $REDDIT_HOME/src/reddit/r2/development.update
+
+sudo -u $REDDIT_USER make ini
 
 if [ ! -L run.ini ]; then
     sudo -u $REDDIT_USER ln -nsf development.ini run.ini
