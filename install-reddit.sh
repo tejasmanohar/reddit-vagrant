@@ -322,7 +322,7 @@ plugin_str=$(echo -n "$REDDIT_PLUGINS" | tr "\n" ,)
 sed -i "s/^plugins = .*$/plugins = $plugin_str/" $REDDIT_HOME/src/reddit/r2/development.ini
 
 if [ ! -L run.ini ]; then
-    sudo -u $REDDIT_USER ln -s development.ini run.ini
+    sudo -u $REDDIT_USER ln -nsf development.ini run.ini
 fi
 
 ###############################################################################
@@ -360,9 +360,9 @@ server {
 MEDIA
 
 # remove the default nginx site that may conflict with haproxy
-rm /etc/nginx/sites-enabled/default
+rm -rf /etc/nginx/sites-enabled/default
 # put our config in place
-ln -s /etc/nginx/sites-available/reddit-media /etc/nginx/sites-enabled/
+ln -nsf /etc/nginx/sites-available/reddit-media /etc/nginx/sites-enabled/
 
 service nginx restart
 
@@ -557,7 +557,7 @@ exec gunicorn_paster /etc/sutro.ini
 UPSTART_SUTRO
 fi
 
-start sutro
+service sutro restart
 
 ###############################################################################
 # geoip service
@@ -579,7 +579,7 @@ CONFIG = {
 GEOIP
 fi
 
-service gunicorn start
+service gunicorn restart
 
 ###############################################################################
 # Job Environment
@@ -619,7 +619,7 @@ set_consumer_count vote_comment_q 1
 
 chown -R $REDDIT_USER:$REDDIT_GROUP $CONSUMER_CONFIG_ROOT/
 
-initctl emit reddit-start
+initctl emit reddit-restart
 
 ###############################################################################
 # Cron Jobs
