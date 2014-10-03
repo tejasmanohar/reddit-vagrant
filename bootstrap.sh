@@ -14,7 +14,8 @@ export REDDIT_PLUGINS=$1
 export REDDIT_DOMAIN=$3
 
 # Install reddit and all its dependencies.
-. /vagrant/install-reddit.sh
+. /$REDDIT_HOME/src/reddit/install-reddit.sh
+
 if [ $2 ]; then
   $init_ctl emit reddit-stop
   eval "cd $REDDIT_HOME/src/reddit/r2; $reddit_run r2/models/populatedb.py -c 'populate()'"
