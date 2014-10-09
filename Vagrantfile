@@ -68,7 +68,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider "kvm" do |kvm|
     kvm.core_number = user_config[:cpu]
-    kvm.memory_size = user_config[:memory]
+    kvm.memory_size = user_config[:memory].to_s+"m"
   end
 
   config.vm.provider "vmware_fusion" do |v|
