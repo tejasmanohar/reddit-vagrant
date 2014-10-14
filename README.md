@@ -1,7 +1,9 @@
 reddit-vagrant
 ==============
 
-Vagrant setup for le reddit.
+This is a vagrant setup for reddit - it's likely temporary and will be merged into
+reddit/reddit once we have a stable baseline comfort level for using vagrant
+in-house.
 
 
 Usage
