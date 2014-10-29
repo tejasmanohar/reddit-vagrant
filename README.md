@@ -47,7 +47,8 @@ When Things Go Wrong
 If reddit.local cannot be resolved, first check your /etc/hosts file and see if that hostname
 is in there. If it is not, run `vagrant ssh-config` inside of your reddit-vagrant folder. You
 should then add an entry to /etc/hosts that corresponds to the IP address from the command and
-try again.
+try again. This happens when the user vagrant is running as does not have access to write to
+your /etc/hosts file.
 
 If you browse to reddit.local and see a 503 error, run `vagrant ssh` in your reddit-vagrant
 folder and then, using your favorite command line text editor, edit the
@@ -56,7 +57,8 @@ folder and then, using your favorite command line text editor, edit the
 If vagrant up terminates relatively quickly, shows
 `Stderr: VBoxManage: error: DHCP server already exists`, and you are using VirtualBox then
 run the command `VBoxManage dhcpserver remove --netname HostInterfaceNetworking-vboxnet0`
-and try again.
+and try again. This happens because of a bug in the vagrant-virtualbox plugin. It does not
+check to see if an existing dhcp server is set up before creating a new one.
 
 If you are using KVM, the most recent version has a bug in it that breaks private networks.
 Please uninstall vagrant-kvm and reinstall it with the --plugin-version=0.1.7 switch.
