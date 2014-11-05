@@ -24,6 +24,7 @@ Usage
   `vagrant plugin install vagrant-hostsupdater`.
 * OPTIONAL, but recommended. Install the cachier plugin for vagrant
   (`vagrant plugin install vagrant-cachier`). This will make future provisions MUCH faster.
+* READ THE PROTIPS BELOW
 * Run `vagrant up --provider=:provider`, wait for it to finish.
 * Visit `http://reddit.local` and revel in your beautiful new reddit development environment.
 
@@ -32,7 +33,7 @@ Protips
 -------
 * Read `vagrant_config.yml`.
 * Setting testData to false can speed up provisioning times dramatically.
-* Setting nfs to false is a good idea on vmware and also on osx.
+* Setting nfs to false is a good idea on vmware and windows. For windows you should set smb: true.
 * Read the bash_helpers script for aliases to common commands.
 
 Q & A
