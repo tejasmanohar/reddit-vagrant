@@ -15,6 +15,7 @@ Usage
 
     git clone https://github.com/reddit/reddit-vagrant.git
     cd reddit-vagrant
+    cp vagrant_config.yml.example vagrant_config.yml
     vagrant plugin install vagrant-bindfs
     vagrant plugin install vagrant-cachier
     vagrant plugin install vagrant-hostsupdater
@@ -25,9 +26,10 @@ Afterwards, visit http://reddit.local and enjoy your fresh new local reddit inst
 
 ####Advanced
 
-* OPTIONAL, Copy `vagrant_config.yml.example` to `vagrant_config.yml`. Change values as necessary.
+* Copy `vagrant_config.yml.example` to `vagrant_config.yml`. Change values as necessary.
     * Note: If you intend on having your source tree mounted from your host, copy
-      vagrant_config.yml.devexample instead
+      vagrant_config.yml.devexample instead. If you use devexample you must make sure the
+      appropriate folders are in their proper places. Further documentation in vagrant_config.yml
 * Install vagrant (Get the latest from https://www.vagrantup.com/downloads.html)
 * Install vagrant-bindfs `vagrant plugin install vagrant-bindfs`
 * Install your preferred vmware provider(VirtualBox, KVM, and VMWare are supported)
