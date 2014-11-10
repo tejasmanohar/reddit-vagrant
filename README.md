@@ -5,9 +5,25 @@ This is a vagrant setup for reddit - it's likely temporary and will be merged in
 reddit/reddit once we have a stable baseline comfort level for using vagrant
 in-house.
 
+To begin, install vagrant for your platform. https://www.vagrantup.com/downloads.html If you are
+on linux, odds are you can just use your package manager to install vagrant.
 
 Usage
 -----
+
+####Simple
+
+    git clone https://github.com/reddit/reddit-vagrant.git
+    cd reddit-vagrant
+    vagrant plugin install vagrant-bindfs
+    vagrant plugin install vagrant-cachier
+    vagrant plugin install vagrant-hostsupdater
+    sudo chmod +w /etc/hosts
+    vagrant up
+
+Afterwards, visit http://reddit.local and enjoy your fresh new local reddit install!
+
+####Advanced
 
 * OPTIONAL, Copy `vagrant_config.yml.example` to `vagrant_config.yml`. Change values as necessary.
     * Note: If you intend on having your source tree mounted from your host, copy
@@ -68,3 +84,4 @@ First, try to `git clean -f -d` each of your local source trees. The build proce
 Then, try a `vagrant provision` if the install script didn't complete. If that doesn't fix
 it, as a last resort try a `vagrant destroy` and then a `vagrant up`. Sometimes packages don't
 download properly.
+
