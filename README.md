@@ -21,7 +21,8 @@ Usage
   * NOTE - You will also need to choose the appropriate box for a particular provider in your
     vagrant_config.yml. VirtualBox is default
 * Install vagrant-hostsupdater - this will add the appropriate hosts entries for your local system.
-  `vagrant plugin install vagrant-hostsupdater`.
+  `vagrant plugin install vagrant-hostsupdater`. Note::This will require that your hosts file be
+  writeable by the user vagrant is being run as.
 * OPTIONAL, but recommended. Install the cachier plugin for vagrant
   (`vagrant plugin install vagrant-cachier`). This will make future provisions MUCH faster.
 * Run `vagrant up --provider=:provider`, wait for it to finish.
