@@ -22,7 +22,7 @@ Usage
     sudo chmod +w /etc/hosts
     vagrant up
 
-Afterwards, visit http://reddit.local and enjoy your fresh new local reddit install!
+Afterwards, visit http://reddit.local and enjoy your fresh new local reddit install! By default, the initial username will be "reddit" and password will be "password".
 
 ####Advanced
 
@@ -45,7 +45,7 @@ Afterwards, visit http://reddit.local and enjoy your fresh new local reddit inst
   (`vagrant plugin install vagrant-cachier`). This will make future provisions MUCH faster.
 * READ THE PROTIPS BELOW
 * Run `vagrant up --provider=:provider`, wait for it to finish.
-* Visit `http://reddit.local` and revel in your beautiful new reddit development environment.
+* Visit `http://reddit.local` and revel in your beautiful new reddit development environment. The default user/pass is reddit/password.
 
 
 Protips
