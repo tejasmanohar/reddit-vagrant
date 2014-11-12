@@ -21,4 +21,3 @@ if [ $2 ]; then
   eval "cd $REDDIT_HOME/src/reddit/r2; $reddit_run r2/models/populatedb.py -c 'populate()'"
   $init_ctl emit reddit-start
 fi
-$ln -nsf /vagrant/bash_helpers /etc/profile.d/reddit-bash-helpers.sh
