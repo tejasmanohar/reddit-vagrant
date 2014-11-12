@@ -1,9 +1,7 @@
 reddit-vagrant
 ==============
 
-This is a vagrant setup for reddit - it's likely temporary and will be merged into
-reddit/reddit once we have a stable baseline comfort level for using vagrant
-in-house.
+This is a vagrant setup for reddit.
 
 To begin, install vagrant for your platform. https://www.vagrantup.com/downloads.html If you are
 on linux, odds are you can just use your package manager to install vagrant.
