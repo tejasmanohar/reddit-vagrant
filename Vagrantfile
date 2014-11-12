@@ -2,6 +2,11 @@
 # vi: set ft=ruby :
 
 require 'yaml'
+
+yml_config = {}
+if File.exist?("vagrant_config.yml")
+  yml_config = YAML::load_file("vagrant_config.yml")
+end
 # Minimum memory requirement is 2gb. Doubling to 4gb for safety.
 user_config = {
   private_ip: "192.168.150.2",
@@ -22,7 +27,7 @@ user_config = {
   hostname: "reddit.local",
   nfs: true,
   smb: false
-}.merge(YAML::load_file("vagrant_config.yml") || {})
+}.merge(yml_config)
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
