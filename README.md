@@ -52,6 +52,8 @@ Protips
 * Setting testData to false can speed up provisioning times dramatically.
 * Setting nfs to false is a good idea on vmware and windows. For windows you should set smb: true.
 * Read the bash_helpers script for aliases to common commands.
+* If you are not using virtualbox, you can set dhcp to true in your vagrant_config.yml. This will
+  save you headaches if you run multiple vms.
 
 Q & A
 -----
