@@ -10,7 +10,7 @@
 # Assign a private IP to your box.
 :private_ip: "192.168.150.2"
 # Force DHCP instead of static ip
-:dhcp: true
+:dhcp: false
 # Give it a unique hostname(use a . to make cookies work)
 :hostname: reddit.local
 
