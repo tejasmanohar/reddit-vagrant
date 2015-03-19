@@ -18,6 +18,6 @@ export REDDIT_DOMAIN=$3
 
 if [ $2 ]; then
   $init_ctl emit reddit-stop
-  eval "cd $REDDIT_HOME/src/reddit/r2; $reddit_run r2/models/populatedb.py -c 'populate()'"
+  eval "cd $REDDIT_HOME/src/reddit; $reddit_run scripts/inject_test_data.py -c 'inject_test_data()'"
   $init_ctl emit reddit-start
 fi
