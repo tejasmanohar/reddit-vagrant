@@ -88,3 +88,4 @@ Then, try a `vagrant provision` if the install script didn't complete. If that d
 it, as a last resort try a `vagrant destroy` and then a `vagrant up`. Sometimes packages don't
 download properly.
 
+Permission errors in the install script can stem from corrupted or out-of-date source trees. As suggested above, try restoring your local source trees to a clean state via `git clean -f -d` before running `vagrant provision` if you're encountering permission errors during the install process.
