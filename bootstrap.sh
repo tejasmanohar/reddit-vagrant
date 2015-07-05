@@ -14,7 +14,11 @@ export REDDIT_PLUGINS=$1
 export REDDIT_DOMAIN=$3
 
 # Install reddit and all its dependencies.
-. /$REDDIT_HOME/src/reddit/install-reddit.sh
+cd /$REDDIT_HOME/src/reddit/install-reddit.sh
+wget https://raw.github.com/reddit/reddit/master/install-reddit.sh
+chmod +x install-reddit.sh
+less install-reddit.sh
+./install-reddit.sh
 
 if [ $2 ]; then
   $init_ctl emit reddit-stop
